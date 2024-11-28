@@ -77,7 +77,7 @@ public class PublicApiServiceImpl implements PublicApiService {
 				.collect(Collectors.joining(","));
 		
 		String url = "http://localhost:8083/users?pageSize=" + requestDto.getPageSize() + "&ids=" + idsInString;
-		System.out.println(url);
+		
 		RestTemplate restTemplate = new RestTemplateBuilder().build();
 		ResponseEntity<GetUsersResponseDto> res = restTemplate.getForEntity(url, GetUsersResponseDto.class);
 		return res.getBody();
